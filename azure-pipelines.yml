@@ -27,10 +27,9 @@ steps:
     clean: true
 
   - template: authentication/steps/package-managers-windows.yml@templates
-
   - template: pipeline/steps/pr-workaround-before.yml@templates
-  
-  - task: DotNetCoreInstaller@1
+
+  - task: UseDotNet@2
     displayName: 'Use .NET Core SDK $(DOTNET_SDK_VERSION)'
     inputs:
       version: '$(DOTNET_SDK_VERSION)'
@@ -47,10 +46,5 @@ steps:
     condition: and(always(), not(canceled()))
     continueOnError: true
 
-  - task: PublishCodeCoverageResults@1
-    inputs:
-      codeCoverageTool: Cobertura
-      summaryFileLocation: $(Common.TestResultsDirectory)/coverage.cobertura.xml
-      
   - template: pipeline/steps/pr-workaround-after.yml@templates
 
