@@ -28,7 +28,7 @@ namespace LINQtoCSV.Tests
             int count = actual.Count();
             Assert.Equal(count, expected.Count());
 
-            for(int i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 actual.ElementAt(i).AssertEqual(expected.ElementAt(i));
             }
@@ -120,7 +120,7 @@ namespace LINQtoCSV.Tests
         public static void AssertWrite<T>(IEnumerable<T> values, CsvFileDescription fileDescription, string expected) where T : class
         {
             string actual = TestWrite(values, fileDescription);
-            Assert.Equal(Utils.NormalizeString(actual), Utils.NormalizeString(expected));
+            Assert.Equal(Utils.NormalizeString(expected), Utils.NormalizeString(actual));
         }
     }
 }
