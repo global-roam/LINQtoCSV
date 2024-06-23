@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<OutputType>Exe</OutputType>
 		<RootNamespace></RootNamespace>
 		<NoWarn>CS0649;CS0169</NoWarn>
@@ -10,7 +10,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="GlobalRoam.Build.Nuke" Version="7.0.27" />
+		<PackageReference Include="GlobalRoam.Build.Nuke" Version="8.0.1" />
 		<PackageDownload Include="GitVersion.Tool" Version="[5.11.1]" />
 		<PackageDownload Include="NuGetKeyVaultSignTool" Version="[3.2.3]" />
 	</ItemGroup>

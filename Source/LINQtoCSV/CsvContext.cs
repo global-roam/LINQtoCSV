@@ -133,7 +133,7 @@ namespace LINQtoCSV
             // If we're reading raw data rows, instantiate a T so we return objects
             // of the type specified by the caller.
             // Otherwise, instantiate a DataRow, which also implements IDataRow.
-            IDataRow row = null;
+            IDataRow row;
             if (readingRawDataRows)
             {
                 row = new T() as IDataRow;
@@ -173,7 +173,7 @@ namespace LINQtoCSV
                     }
                     else
                     {
-                        T obj = default(T);
+                        T obj = default;
                         try
                         {
                             if (readingRawDataRows)
@@ -185,12 +185,12 @@ namespace LINQtoCSV
                                 obj = fm.ReadObject(row, ae);
                             }
                         }
-                        catch (AggregatedException ae2)
+                        catch (AggregatedException)
                         {
                             // Seeing that the AggregatedException was thrown, maximum number of exceptions
                             // must have been reached, so rethrow.
                             // Catch here, so you don't add an AggregatedException to an AggregatedException
-                            throw ae2;
+                            throw;
                         }
                         catch (Exception e)
                         {

@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <LangVersion>7.3</LangVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EmbedAllSources>true</EmbedAllSources>
@@ -13,7 +13,7 @@
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="GlobalRoam.Testing" Version="7.1.10" />
+    <PackageReference Include="GlobalRoam.Testing" Version="7.2.32" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LINQtoCSV\LINQtoCSV.csproj" />

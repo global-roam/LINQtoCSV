@@ -14,7 +14,7 @@ namespace LINQtoCSV.Tests
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        protected StreamReader StreamReaderFromString(string s)
+        protected static StreamReader StreamReaderFromString(string s)
         {
             byte[] stringAsByteArray = System.Text.Encoding.UTF8.GetBytes(s);
             Stream stream = new MemoryStream(stringAsByteArray);
@@ -23,7 +23,7 @@ namespace LINQtoCSV.Tests
             return streamReader;
         }
 
-        protected void AssertCollectionsEqual<T>(IEnumerable<T> actual, IEnumerable<T> expected) where T : IAssertable<T>
+        protected static void AssertCollectionsEqual<T>(IEnumerable<T> actual, IEnumerable<T> expected) where T : IAssertable<T>
         {
             int count = actual.Count();
             Assert.Equal(count, expected.Count());
@@ -50,7 +50,7 @@ namespace LINQtoCSV.Tests
         /// <returns>
         /// Output of Read.
         /// </returns>
-        public IEnumerable<T> TestRead<T>(string testInput, CsvFileDescription fileDescription) where T : class, new()
+        public static IEnumerable<T> TestRead<T>(string testInput, CsvFileDescription fileDescription) where T : class, new()
         {
             CsvContext cc = new CsvContext();
             return cc.Read<T>(StreamReaderFromString(testInput), fileDescription);
@@ -72,11 +72,11 @@ namespace LINQtoCSV.Tests
         /// <param name="expected">
         /// Expected output.
         /// </param>
-        public void AssertRead<T>(string testInput, CsvFileDescription fileDescription, IEnumerable<T> expected)
+        public static void AssertRead<T>(string testInput, CsvFileDescription fileDescription, IEnumerable<T> expected)
             where T : class, IAssertable<T>, new()
         {
             IEnumerable<T> actual = TestRead<T>(testInput, fileDescription);
-            AssertCollectionsEqual<T>(actual, expected);
+            AssertCollectionsEqual(actual, expected);
         }
 
         /// <summary>
@@ -94,9 +94,9 @@ namespace LINQtoCSV.Tests
         /// <returns>
         /// Returns a string with the content that the Write method writes to a file or TextWriter.
         /// </returns>
-        public string TestWrite<T>(IEnumerable<T> values, CsvFileDescription fileDescription) where T : class
+        public static string TestWrite<T>(IEnumerable<T> values, CsvFileDescription fileDescription) where T : class
         {
-            TextWriter stream = new StringWriter();
+            var stream = new StringWriter();
             CsvContext cc = new CsvContext();
             cc.Write(values, stream, fileDescription);
             return stream.ToString();
@@ -117,9 +117,9 @@ namespace LINQtoCSV.Tests
         /// <param name="expected">
         /// Expected output.
         /// </param>
-        public void AssertWrite<T>(IEnumerable<T> values, CsvFileDescription fileDescription, string expected) where T : class
+        public static void AssertWrite<T>(IEnumerable<T> values, CsvFileDescription fileDescription, string expected) where T : class
         {
-            string actual = TestWrite<T>(values, fileDescription);
+            string actual = TestWrite(values, fileDescription);
             Assert.Equal(Utils.NormalizeString(actual), Utils.NormalizeString(expected));
         }
     }
