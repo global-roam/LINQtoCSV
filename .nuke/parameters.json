@@ -1,4 +1,4 @@
 {
   "$schema": "./build.schema.json",
-  "Solution": "Source/LINQtoCSV.sln"
+  "Solution": "Source/LINQtoCSV.slnx"
 }
