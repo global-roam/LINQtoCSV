@@ -1,0 +1,12 @@
+<Solution>
+  <Project Path="../Build/_build.csproj">
+    <Build Project="false" />
+  </Project>
+  <Project Path="LINQtoCSV.Tests/LINQtoCSV.Tests.csproj" />
+  <Project Path="LINQtoCSV/LINQtoCSV.csproj" />
+  <Project Path="SampleCode/SampleCode.csproj" />
+  <Project Path="TestConsoleApplication/TestConsoleApplication.csproj" />
+  <Properties Name="TestCaseManagementSettings" Scope="PostLoad">
+    <Property Name="CategoryFile" Value="LINQtoCSV.vsmdi" />
+  </Properties>
+</Solution>
