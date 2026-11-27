@@ -32,6 +32,9 @@ binaries/
 # Visual Studio 2015 cache/options directory
 .vs/
 
+# Fallout build scratch (parameters.json and build.schema.json in .fallout/ are tracked)
+.fallout/temp/
+
 **/wwwroot/build/
 **/content/build/
 

@@ -34,7 +34,7 @@ steps:
     inputs:
       version: '$(DOTNET_SDK_VERSION)'
 
-  - template: pipeline/steps/build-and-push-nuke-package.yml@templates
+  - template: pipeline/steps/build-and-push-fallout-package.yml@templates
 
   - task: PublishTestResults@2
     displayName: Publish test results
