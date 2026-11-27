@@ -1,11 +1,5 @@
-using GlobalRoam.Build.Nuke;
-using Nuke.Common;
-using Nuke.Common.Execution;
-using Nuke.Common.Tools.DotNet;
-using Nuke.Common.Tools.GitVersion;
-using System;
-using System.Linq;
-using static Nuke.Common.Tools.DotNet.DotNetTasks;
+using GlobalRoam.Build.Fallout;
+using Fallout.Common.Execution;
 
 [UnsetVisualStudioEnvironmentVariables]
 class Build : NugetPackageBuild

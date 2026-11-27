@@ -1,1 +1,2 @@
-mode: Mainline
+mode: ContinuousDeployment
+semantic-version-format: Loose
